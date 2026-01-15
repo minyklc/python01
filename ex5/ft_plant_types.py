@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 class Plant:
+
+    '''same Plant class'''
+
     def __init__(self, name, height, age):
         self.a1 = name
         self.a2 = height
@@ -17,6 +20,9 @@ class Plant:
 
 
 class Flower(Plant):
+
+    '''Flower class has color attributes and the ability to bloom()'''
+
     def __init__(self, name, height, age, color):
         super().__init__(name, height, age)
         self.a4 = color
@@ -26,6 +32,10 @@ class Flower(Plant):
 
 
 class Tree(Plant):
+
+    '''Tree class has trunk's diameter attributes and
+       the ability to produce shade'''
+
     def __init__(self, name, height, age, trunk_diameter):
         super().__init__(name, height, age)
         self.a4 = trunk_diameter
@@ -35,6 +45,10 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
+
+    '''Vegetable class has harvest's season and
+       nutritional value attributes'''
+
     def __init__(self, name, height, age, harvest_season, nutritional_value):
         super().__init__(name, height, age)
         self.a4 = harvest_season
@@ -43,6 +57,9 @@ class Vegetable(Plant):
 
 def main():
     print("=== Garden Plant Types ===\n")
+
+    '''create two plants per type of plants
+       and prints their attributes and abilities (method)'''
 
     rose = Flower("Rose", 25, 30, "red")
     print(f"{rose.a1} ({rose.__class__.__name__}): "

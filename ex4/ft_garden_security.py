@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 class Plant:
+
+    '''the same class plant with plant's data and behavior'''
+
     def __init__(self, name, height, age):
         self.a1 = name
         self.a2 = height
@@ -17,13 +20,20 @@ class Plant:
 
 
 class SecurePlant:
+
+    '''SecurePlant class to protect data by creating methods
+       getter/setter'''
+
     def __init__(self, plant):
         self.plant = plant
 
+    '''getter method with @property that returns the data wanted, the height'''
     @property
     def height(self):
         return self.plant.a2
 
+    '''setter method with the name of the method affected with @property
+       followed by .setter, to assign a new value to an attributes'''
     @height.setter
     def height(self, height):
         if height < 0:
@@ -33,10 +43,13 @@ class SecurePlant:
             self.plant.a2 = height
             print(f"Height updated: {self.plant.a2}cm [OK]")
 
+    '''getter for the plant's age'''
     @property
     def age(self):
         return self.plant.a3
 
+    '''setter of the age, for both setters, if the new value is negative,
+       it is rejected and prints an error message'''
     @age.setter
     def age(self, age):
         if age < 0:
@@ -48,6 +61,8 @@ class SecurePlant:
 
 
 def main():
+    '''envelop the Plant variable by the Secure class to add the security
+       and use getter/setter in SecurePlant'''
     print("=== Garden Security System ===")
     rose = SecurePlant(Plant("Rose", 20, 25))
     name = rose.plant.a1

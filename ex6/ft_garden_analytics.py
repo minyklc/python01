@@ -1,6 +1,9 @@
 #!usr/bin/env python3
 
 class Plant:
+
+    '''same Plant class'''
+
     def __init__(self, name, height, age):
         self.a1 = name
         self.a2 = height
@@ -18,6 +21,10 @@ class Plant:
 
 
 class FloweringPlant(Plant):
+
+    '''FloweringPlant that takes Plants attributes + flower's color
+       and their state of blooming'''
+
     def __init__(self, name, height, age, type):
         super().__init__(name, height, age)
         self.a4 = type
@@ -29,12 +36,24 @@ class FloweringPlant(Plant):
 
 
 class PrizeFlower(FloweringPlant):
+
+    '''PrizeFlower that takes Flowering Plant attributes and behavior
+       + the point prize associated to the flower'''
+
     def __init__(self, name, height, age, type, prize):
         super().__init__(name, height, age, type)
         self.a6 = prize
 
 
 class GardenManager:
+
+    '''when GardenManager is called, a garden is created with attributes like
+       the owner's name, a list where plants are stocked, and the total growth
+       and the total points initiated at 0. the garden is then append to
+       an all_garden list to get track of all the gardens (with @classmethod).
+       GardenManager's methods can overall add plant, make plants grow & bloom.
+       there's also an inner class, GardenStats'''
+
     all_garden = []
 
     def __init__(self, name):
@@ -74,6 +93,15 @@ class GardenManager:
         return variable
 
     class GardenStats:
+
+        '''GardenStats is about get datas about one specific garden, or
+           all of the gardens. get_plant returns all the plants of a garden
+           get_added returns the number of plants in a garden,
+           get_types returns the numbers of each type of plants with
+           a table of ints ([0]: regular, [1]: flower [2]: prize),
+           and static methods calculates numbers of gardens, total points
+           and check height with all_garden from GardenManager'''
+
         def __init__(self, garden):
             self.garden = garden
 
@@ -130,11 +158,14 @@ class GardenManager:
 
 
 def main():
+
+    '''alice and bob's gardens are created with GardenManager,
+       then plants are added, growed and bloomed'''
+
     print("=== Garden Management System Demo ===\n")
 
     alice = GardenManager.create_garden_network("Alice")
     bob = GardenManager.create_garden_network("Bob")
-
     bob.add_plant(FloweringPlant("Lily", 82, 60, "white flowers"))
     print(f"{alice.add_plant(Plant("Oak Tree", 100, 500))}")
     print(f"{alice.add_plant(FloweringPlant("Rose", 25, 30, "red flowers"))}")
@@ -147,7 +178,11 @@ def main():
     alice.all_bloom()
     print()
 
+    '''alice report is printed with @property methods from GardenStats,
+       then stats of all of the gardens is printed'''
+
     print(f"=== {alice.name}'s Garden Report ===")
+
     print(f"{alice.stats.get_plant}")
     print(
         f"Plants added: {alice.stats.get_added}, "
