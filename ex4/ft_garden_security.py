@@ -5,17 +5,17 @@ class Plant:
 
     def __init__(self, name, height, age):
         self.a1 = name
-        self.a2 = height
-        self.a3 = age
+        self._a2 = height
+        self._a3 = age
 
     def get_info(self):
         print(f"{self.a1}: {self.a2:.0f}cm, {self.a3} days old")
 
     def age(self):
-        self.a3 += 1
+        self._a3 += 1
 
     def grow(self, length):
-        self.a2 += length
+        self._a2 += length
         return (length)
 
 
@@ -30,7 +30,7 @@ class SecurePlant:
     '''getter method with @property that returns the data wanted, the height'''
     @property
     def height(self):
-        return self.plant.a2
+        return self.plant._a2
 
     '''setter method with the name of the method affected with @property
        followed by .setter, to assign a new value to an attributes'''
@@ -40,13 +40,13 @@ class SecurePlant:
             print(f"Invalid operation attempted: height {height}cm [REJECTED]")
             print("Security: Negative height rejected")
         else:
-            self.plant.a2 = height
-            print(f"Height updated: {self.plant.a2}cm [OK]")
+            self.plant._a2 = height
+            print(f"Height updated: {self.plant._a2}cm [OK]")
 
     '''getter for the plant's age'''
     @property
     def age(self):
-        return self.plant.a3
+        return self.plant._a3
 
     '''setter of the age, for both setters, if the new value is negative,
        it is rejected and prints an error message'''
@@ -56,8 +56,8 @@ class SecurePlant:
             print(f"Invalid operation attempted: age {age} days [REJECTED]")
             print("Security: Negative age rejected")
         else:
-            self.plant.a3 = age
-            print(f"Age updated: {self.plant.a3} days [OK]")
+            self.plant._a3 = age
+            print(f"Age updated: {self.plant._a3} days [OK]")
 
 
 def main():
