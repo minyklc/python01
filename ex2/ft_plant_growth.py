@@ -2,7 +2,7 @@
 class Plant:
 
     '''same attributes'''
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         self.a1 = name
         self.a2 = height
         self.a3 = age
@@ -16,7 +16,7 @@ class Plant:
         self.a3 += 1
 
     '''add a lenght to the height (self.a2) when grow method is called'''
-    def grow(self, length):
+    def grow(self, length: int):
         self.a2 += length
         return (length)
 

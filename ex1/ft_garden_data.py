@@ -2,7 +2,7 @@
 class Plant:
 
     '''class plant that attributes name, height and age of a plant'''
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         self.a1 = name
         self.a2 = height
         self.a3 = age

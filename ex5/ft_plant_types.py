@@ -3,7 +3,7 @@ class Plant:
 
     '''same Plant class'''
 
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         self.a1 = name
         self.a2 = height
         self.a3 = age
@@ -14,7 +14,7 @@ class Plant:
     def age(self):
         self.a3 += 1
 
-    def grow(self, length):
+    def grow(self, length: int):
         self.a2 += length
         return (length)
 
@@ -23,7 +23,7 @@ class Flower(Plant):
 
     '''Flower class has color attributes and the ability to bloom()'''
 
-    def __init__(self, name, height, age, color):
+    def __init__(self, name: str, height: int, age: int, color: str):
         super().__init__(name, height, age)
         self.a4 = color
 
@@ -36,11 +36,11 @@ class Tree(Plant):
     '''Tree class has trunk's diameter attributes and
        the ability to produce shade'''
 
-    def __init__(self, name, height, age, trunk_diameter):
+    def __init__(self, name: str, height: int, age: int, trunk_diameter: int):
         super().__init__(name, height, age)
         self.a4 = trunk_diameter
 
-    def produce_shade(self, nb):
+    def produce_shade(self, nb: int):
         return f"{self.a1} provides {nb} square meters of shade"
 
 
@@ -49,7 +49,8 @@ class Vegetable(Plant):
     '''Vegetable class has harvest's season and
        nutritional value attributes'''
 
-    def __init__(self, name, height, age, harvest_season, nutritional_value):
+    def __init__(self, name: str, height: int,
+                 age: int, harvest_season: str, nutritional_value: str):
         super().__init__(name, height, age)
         self.a4 = harvest_season
         self.a5 = nutritional_value

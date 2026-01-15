@@ -4,7 +4,7 @@ class Plant:
 
     '''same Plant class'''
 
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         self.a1 = name
         self.a2 = height
         self.a3 = age
@@ -15,7 +15,7 @@ class Plant:
     def age(self):
         self.a3 += 1
 
-    def grow(self, length):
+    def grow(self, length: int):
         self.a2 += length
         return (length)
 
@@ -25,7 +25,7 @@ class FloweringPlant(Plant):
     '''FloweringPlant that takes Plants attributes + flower's color
        and their state of blooming'''
 
-    def __init__(self, name, height, age, type):
+    def __init__(self, name: str, height: int, age: int, type: str):
         super().__init__(name, height, age)
         self.a4 = type
         self.a5 = "not blooming"
@@ -40,7 +40,8 @@ class PrizeFlower(FloweringPlant):
     '''PrizeFlower that takes Flowering Plant attributes and behavior
        + the point prize associated to the flower'''
 
-    def __init__(self, name, height, age, type, prize):
+    def __init__(self, name: str, height: int,
+                 age: int, type: str, prize: int):
         super().__init__(name, height, age, type)
         self.a6 = prize
 
@@ -56,7 +57,7 @@ class GardenManager:
 
     all_garden = []
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.garden = []
         self.name = name
         self.growth = 0
@@ -70,7 +71,7 @@ class GardenManager:
             self.points += plant.a6
         return f"Added {plant.a1} to {self.name}'s garden"
 
-    def all_grow(self, length):
+    def all_grow(self, length: int):
         print(f"{self.name} is helping all plants grow...")
         for plant in self.garden:
             self.growth += plant.grow(length)
@@ -87,7 +88,7 @@ class GardenManager:
         return GardenManager.GardenStats(self.garden)
 
     @classmethod
-    def create_garden_network(cls, name):
+    def create_garden_network(cls, name: str):
         variable = cls(name)
         GardenManager.all_garden.append(variable)
         return variable

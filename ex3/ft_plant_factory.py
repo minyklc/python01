@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 class Plant:
     '''same class Plant'''
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         self.a1 = name
         self.a2 = height
         self.a3 = age
@@ -15,7 +15,7 @@ class Plant:
         self.a3 += 1
 
     '''add lenght when grow is called'''
-    def grow(self, length):
+    def grow(self, length: int):
         self.a2 += length
         return (length)
 

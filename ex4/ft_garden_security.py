@@ -3,7 +3,7 @@ class Plant:
 
     '''the same class plant with plant's data and behavior'''
 
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         self.a1 = name
         self._a2 = height
         self._a3 = age
@@ -14,7 +14,7 @@ class Plant:
     def age(self):
         self._a3 += 1
 
-    def grow(self, length):
+    def grow(self, length: int):
         self._a2 += length
         return (length)
 
@@ -24,7 +24,7 @@ class SecurePlant:
     '''SecurePlant class to protect data by creating methods
        getter/setter'''
 
-    def __init__(self, plant):
+    def __init__(self, plant: Plant):
         self.plant = plant
 
     '''getter method with @property that returns the data wanted, the height'''
@@ -35,7 +35,7 @@ class SecurePlant:
     '''setter method with the name of the method affected with @property
        followed by .setter, to assign a new value to an attributes'''
     @height.setter
-    def height(self, height):
+    def height(self, height: int):
         if height < 0:
             print(f"Invalid operation attempted: height {height}cm [REJECTED]")
             print("Security: Negative height rejected")
@@ -51,7 +51,7 @@ class SecurePlant:
     '''setter of the age, for both setters, if the new value is negative,
        it is rejected and prints an error message'''
     @age.setter
-    def age(self, age):
+    def age(self, age: int):
         if age < 0:
             print(f"Invalid operation attempted: age {age} days [REJECTED]")
             print("Security: Negative age rejected")
