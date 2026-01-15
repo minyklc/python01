@@ -167,12 +167,10 @@ def main():
     alice = GardenManager.create_garden_network("Alice")
     bob = GardenManager.create_garden_network("Bob")
     bob.add_plant(FloweringPlant("Lily", 82, 60, "white flowers"))
-    print(f"{alice.add_plant(Plant("Oak Tree", 100, 500))}")
-    print(f"{alice.add_plant(FloweringPlant("Rose", 25, 30, "red flowers"))}")
-    print(
-        f"{alice.add_plant(PrizeFlower("Sunflower", 50, 45,
-                                       "yellow flowers", 10))}"
-    )
+    p = alice.add_plant
+    print(f"{p(Plant("Oak Tree", 100, 500))}")
+    print(f"{p(FloweringPlant("Rose", 25, 30, "red flowers"))}")
+    print(f"{p(PrizeFlower("Sunflower", 50, 45, "yellow flowers", 10))}")
     print()
     alice.all_grow(1)
     alice.all_bloom()
