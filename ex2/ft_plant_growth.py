@@ -46,8 +46,7 @@ def main():
             i += 1
         print(f"=== Day {i} ===")
         plant.get_info()
-        print(f"Growth this week: +{grow:.0f}cm")
-        print("\n")
+        print(f"Growth this week: +{grow:.0f}cm\n")
 
 
 '''main called if it's the main program'''

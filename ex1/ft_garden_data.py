@@ -19,6 +19,6 @@ if __name__ == "__main__":
     cactus = Plant("Cactus", 15, 120)
     tulip = Plant("Tulip", 20, 15)
     garden = [rose, sunflower, cactus, tulip]
-    print("=== Day 1 ===")
+    print("=== Garden Plant Registry ===")
     for plant in garden:
         plant.get_info()
